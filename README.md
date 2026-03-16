@@ -30,12 +30,28 @@ This tells VS Code how to run the tool using your currently active Python enviro
     {
         "label": "Var Viper",
         "type": "shell",
-        "command": "${command:python.interpreterPath}",
+        "command": "&",
         "args": [
+            {
+                "value": "${command:python.interpreterPath}",
+                "quoting": "strong"
+            },
             "-i",  // Interactive mode: Keep session alive
-            "C:/Users/YourName/Tools/var_viper.py", 
-            "${file}"
+            {
+                "value": "C:/Users/YourName/Tools/var_viper.py",
+                "quoting": "strong"
+            },
+            {
+                "value": "${file}",
+                "quoting": "strong"
+            }
         ],
+        "options": {
+            "shell": {
+                "executable": "powershell.exe",
+                "args": ["-NoProfile", "-Command"]
+            }
+        },
         "group": "test",
         "presentation": {
             "reveal": "always",
@@ -141,4 +157,4 @@ A: This is rare. Refresh the page. If that fails, ensure your browser allows Jav
 **GitHub Copilot**
 *Implementation & Code Generation*
 
-**Date:** 19th December 2025
+**Date:** 16th March 2026
